@@ -3,11 +3,6 @@ Handlebars.registerHelper('fullName', function(person) {
 });
 
 
-$.get('template.hbs', function (data) {
-    var template=Handlebars.compile(data);
-    $('body').append(template(user_list));
-}, 'html');
-
 var user_list = { 
     users: [ { 
         person: {
@@ -32,4 +27,9 @@ var user_list = {
         twitter: "minifigures"
     } ]
 }; 
+
+$('body').append(Handlebars.templates['template.hbs'](user_list));
+
+
+
 
